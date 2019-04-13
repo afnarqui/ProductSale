@@ -1,3 +1,17 @@
+# ProductSale
+==========================
+==========================
+
+## comands
+==========================
+* composer create-project --prefer-dist laravel/laravel phplaravel
+* git init 
+* git add .
+* git commit -m "vertion initial"
+* git remote add origin https://github.com/afnarqui/ProductSale.git
+* git push -u origin master
+==========================
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
