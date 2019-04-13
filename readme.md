@@ -10,6 +10,10 @@
 * git commit -m "vertion initial"
 * git remote add origin https://github.com/afnarqui/ProductSale.git
 * git push -u origin master
+* git pull
+* git branch developement
+* git checkout developement
+
 ==========================
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
