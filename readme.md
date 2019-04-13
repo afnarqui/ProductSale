@@ -10,6 +10,14 @@
 * git commit -m "vertion initial"
 * git remote add origin https://github.com/afnarqui/ProductSale.git
 * git push -u origin master
+* git pull
+* git branch developement
+* git checkout developement
+* git checkout -b docker
+* docker-compose up --build
+* http://localhost:8080/
+* exec -it app_mysql bin/bash
+
 ==========================
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
