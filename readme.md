@@ -13,6 +13,7 @@
 * git pull
 * git branch developement
 * git checkout developement
+* git checkout -b docker
 
 ==========================
 
