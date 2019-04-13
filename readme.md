@@ -14,6 +14,9 @@
 * git branch developement
 * git checkout developement
 * git checkout -b docker
+* docker-compose up --build
+* http://localhost:8080/
+* exec -it app_mysql bin/bash
 
 ==========================
 
