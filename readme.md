@@ -29,6 +29,14 @@
 * docker exec -it --user 1000:1000 phplaravel php artisan  make:seeder Category
 * docker exec -it --user 1000:1000 phplaravel php artisan db:seed
 * docker exec -it --user 1000:1000 phplaravel php artisan make:migration Categories
+* docker exec -it --user 1000:1000 phplaravel composer require tymon/jwt-auth:dev-develop --prefer-source
+* docker exec -it --user 1000:1000 phplaravel composer update
+* docker exec -it --user 1000:1000 phplaravel php artisan jwt:secret
+* jwt-auth secret [LJOFaeiapXdQaesNb2XIAtGLyvc0maRnZSKH2qLdjz7Vt8VABREHzuWpPdYwjCk1] set successfully.
+* docker exec -it --user 1000:1000 phplaravel php artisan make:request RegisterFormRequest
+* docker exec -it --user 1000:1000 phplaravel php artisan make:controller AuthController
+* docker exec -it --user 1000:1000 phplaravel composer require tymon/jwt-auth:dev-develop --prefer-source
+* docker exec -it --user 1000:1000 phplaravel php artisan vendor:publish 
 
 
 ==========================
