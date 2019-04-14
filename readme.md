@@ -17,7 +17,11 @@
 * docker-compose up --build
 * http://localhost:8080/
 * exec -it app_mysql bin/bash
-
+* docker exec -it app_mysql mysql -p --> add user and password
+* create database productsale
+* show databases;
+* use productsale
+* show tables;
 ==========================
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
