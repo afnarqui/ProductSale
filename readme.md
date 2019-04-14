@@ -22,6 +22,15 @@
 * show databases;
 * use productsale
 * show tables;
+* docker exec -it --user 1000:1000 phplaravel php artisan make:model user -crm
+* docker exec -it --user 1000:1000 phplaravel php artisan make:model category -crm
+* docker exec -it --user 1000:1000 phplaravel php artisan make:model shoppingCar -crm
+* docker exec -it --user 1000:1000 phplaravel php artisan migrate
+* docker exec -it --user 1000:1000 phplaravel php artisan  make:seeder Category
+* docker exec -it --user 1000:1000 phplaravel php artisan db:seed
+* docker exec -it --user 1000:1000 phplaravel php artisan make:migration Categories
+
+
 ==========================
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
