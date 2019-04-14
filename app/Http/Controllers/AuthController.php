@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
 // use Illuminate\Http\Request;
+use App\Http\Requests\SignUpRequest;
 
 class AuthController extends Controller
 {
@@ -31,6 +32,12 @@ class AuthController extends Controller
         }
 
         return $this->respondWithToken($token);
+    }
+    public function signup(SignUpRequest $request)
+    {
+       $user = User::create($request->all());
+
+       return $this->login($request);
     }
     /**
      * Log the user out (Invalidate the token).

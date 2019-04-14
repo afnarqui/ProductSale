@@ -16,6 +16,8 @@ Route::group([
 ], function () {
 
     Route::post('login', 'AuthController@login');
+    Route::post('signup', 'AuthController@signup');
+    Route::post('refresh', 'AuthController@refresh');
     Route::resource('Product','ProductController');
     Route::resource('Category','CategoryController');
     Route::resource('Product','ProductController');
