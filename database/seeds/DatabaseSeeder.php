@@ -12,10 +12,16 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->truncartablas([
-            'categories'
+            'categories',
+            'products',
+            'users',
+            'shopping_cars'
         ]);
 
         $this->call(Category::class);
+        $this->call(userSeeder::class);
+        $this->call(ProductSeeder::class);
+        $this->call(shoppingCarSeeder::class);
     }
     protected function truncartablas(array $tables){
         DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
