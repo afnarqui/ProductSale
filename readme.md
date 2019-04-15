@@ -37,7 +37,11 @@
 * docker exec -it --user 1000:1000 phplaravel php artisan make:controller AuthController
 * docker exec -it --user 1000:1000 phplaravel composer require tymon/jwt-auth:dev-develop --prefer-source
 * docker exec -it --user 1000:1000 phplaravel php artisan vendor:publish 
-
+* docker exec -it --user 1000:1000 phplaravel php artisan migrate:fresh
+* docker exec -it --user 1000:1000 phplaravel php artisan db:seed
+* docker exec -it --user 1000:1000 phplaravel php artisan  make:seeder product
+* docker exec -it --user 1000:1000 phplaravel composer dump-autoload
+* docker exec -it --user 1000:1000 phplaravel php artisan make:model shoppingCar -crm
 
 ==========================
 

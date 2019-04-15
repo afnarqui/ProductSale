@@ -13,25 +13,32 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('product', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('products', function (Blueprint $table) {
+            $table->increments('id');
             $table->timestamps();
             $table->string('name');
-            $table->unsignedInteger('price');
+            $table->decimal('price', 6,2);
             $table->string('description');
-            $table->string('photo');
-            $table->unsignedInteger('idCategory');
-            $table->unsignedInteger('idUser');
+            $table->string('photo', 300);
+            $table->integer('idCategory')->unsigned();
+            $table->integer('idUser')->unsigned();
          });
-    }
 
-    /**
+         Schema::table('products', function (Blueprint $table) {
+            $table->foreign('idCategory')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('idUser')->references('id')->on('users')->onDelete('cascade');
+        });
+
+
+    }
+     /**
      * Reverse the migrations.
      *
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('product');
+        Schema::dropForeign(['idCategory']);
+        Schema::dropIfExists('products');
     }
 }
