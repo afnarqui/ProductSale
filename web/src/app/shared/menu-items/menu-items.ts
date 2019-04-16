@@ -38,16 +38,17 @@ const MENUITEMS = [
         state: 'home',
         short_label: 'N',
         name: 'Home',
-        type: 'sub',
+        type: 'link',
         icon: 'feather icon-menu',
-        nombremenu: "home",
-        children: [
-          {
-            state: 'suppliers',
-            name: 'Suppliers',
-            target: true
-          }
-        ]
+        nombrehome: 'home'
+      },
+      {
+        state: 'product',
+        short_label: 'N',
+        name: 'Product',
+        type: 'link',
+        icon: 'feather icon-menu',
+        nombreproduct: 'product'
       }
     ]
   }
