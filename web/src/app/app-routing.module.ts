@@ -33,6 +33,10 @@ const routes: Routes = [
         loadChildren: './theme/home/home.module#HomeModule',
       },
       {
+        path: 'product',
+        loadChildren: './theme/product/product.module#ProductModule',
+      },
+      {
         path: 'widget',
         loadChildren: './theme/widget/widget.module#WidgetModule'
       },
@@ -47,9 +51,13 @@ const routes: Routes = [
       {
         path: 'simple-page',
         loadChildren: './theme/simple-page/simple-page.module#SimplePageModule'
+      },
+      { path: 'pages',
+        loadChildren: './layout/pages/suppliers/suppliers.module#SuppliersModule'
       }
-    ]
+    ],
   },
+
   {
     path: '',
     component: AuthComponent,
