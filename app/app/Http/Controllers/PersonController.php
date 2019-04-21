@@ -14,9 +14,9 @@ class PersonController extends Controller
      */
     public function index(Request $request)
     {
-        // $query = DB::select( "select * from users where email =? and password= ?", [$request->input('email'), $request->input('password')]);
+        $query = DB::select( "select * from users where email =? and password= ?", [$request->input('email'), $request->input('password')]);
 
-        // echo json_encode($query);
+        echo json_encode($query);
     }
     public function store(Request $request)
     {

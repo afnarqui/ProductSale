@@ -21,4 +21,3 @@ Route::resource('Person','PersonController');
 Route::resource('Product','ProductController');
 Route::resource('Persons','PersonsController');
 
-

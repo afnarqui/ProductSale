@@ -14,14 +14,13 @@ class PersonsController extends Controller
      */
     public function index(Request $request)
     {
-        // $query = DB::select( "select * from users where email =? and password= ?", [$request->input('email'), $request->input('password')]);
+        $query = DB::select( "select * from users where email =? and password= ?", [$request->input('email'), $request->input('password')]);
 
-        // echo json_encode($query);
+        echo json_encode($query);
     }
     public function store(Request $request)
     {
-
-       // $query = DB::select( "select * from users where email =$request->input('email') and password=$request->input('password')");
+        $query = DB::select( "select * from users where email =$request->input('email') and password=$request->input('password')");
         $query = DB::table('users')->where('email', $request->input('email'))->where('password',$request->input('password'))->first();
         echo json_encode( $query);
     }
@@ -39,5 +38,4 @@ class PersonsController extends Controller
         $query->save();
         echo json_encode($query);
     }
-
    }

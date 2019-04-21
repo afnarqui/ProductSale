@@ -42,6 +42,9 @@
 * docker exec -it --user 1000:1000 phplaravel php artisan  make:seeder product
 * docker exec -it --user 1000:1000 phplaravel composer dump-autoload
 * docker exec -it --user 1000:1000 phplaravel php artisan make:model shoppingCar -crm
+* npm i firebase angularfire2
+* npm install firebase @angular/fire --save
+* ng generate service services/firebase/firebase-storage
 
 ==========================
 

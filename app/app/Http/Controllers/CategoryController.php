@@ -14,8 +14,6 @@ class CategoryController extends Controller
      */
     public function index()
     {
-         $categorys = category::get();
-         echo json_encode($categorys);
 
     }
 
@@ -26,7 +24,6 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -37,7 +34,6 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        echo 'aja store';
     }
 
     /**
@@ -48,7 +44,6 @@ class CategoryController extends Controller
      */
     public function show(category $category)
     {
-        //
     }
 
     /**
