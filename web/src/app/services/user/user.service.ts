@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../models/user.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../config/setings';
 import { Observable } from 'rxjs';
 import { IUserHttp } from '../../models/http-models/user-http.interface';
@@ -69,9 +69,6 @@ export class UserService {
 
      let url = URL_SERVICIOS + 'api/Persons';
 
-    debugger
-    // return this.http.get(  )
-    // let urls = "http://127.0.0.1:8000/login";
    return this.http.post( url, user )
                 .map( (resp: any[]) => {
 
@@ -97,14 +94,10 @@ export class UserService {
    */
   createUser( user: User ) {
     let url = URL_SERVICIOS + 'api/Person';
-    debugger
     return this.http.post( url, user )
               .map( (resp: any) => {
-                debugger
-                //swal('created user', user.email, 'success' );
                 return resp;
               },(error)=> {
-                debugger
                 console.log(error)
               });
   }

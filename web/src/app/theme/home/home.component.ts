@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LANGUAGE } from '../../config/setings';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +11,7 @@ import { LANGUAGE } from '../../config/setings';
 export class HomeComponent implements OnInit {
 
   public activeLang = LANGUAGE;
-
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService,private http: HttpClient) {
     this.translate.setDefaultLang(this.activeLang);
    }
 
@@ -22,5 +22,4 @@ export class HomeComponent implements OnInit {
     this.activeLang = lang;
     this.translate.use(lang);
   }
-
 }
