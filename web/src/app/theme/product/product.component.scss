@@ -1,3 +1,8 @@
+img {
+    max-height: 55px;
+    float: left;
+}
+
 .contenedor {
     display: flex;
     flex-direction: column;
@@ -17,4 +22,29 @@
             color: #FFFFFF;
         }
     }
+}
+
+.imgm {
+    display: block;
+    float: left !important;
+    margin: auto;
+    width: 10%;
+    height: 55px;
+    border: 1px solid #9c9c9c;
+    border-radius: 25px;
+    margin-right: 40px;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.right {
+    text-align: right;
+    float: right;
+}
+
+.strongp {
+    text-align: center;
+    margin-top: 20px;
 }

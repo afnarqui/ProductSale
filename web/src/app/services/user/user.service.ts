@@ -10,6 +10,8 @@ import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
 import * as uuid from 'uuid';
 import { ICategoryHttp } from 'src/app/models/http-models/category-http.interface';
+import { Product } from 'src/app/models/product.model';
+import { IProductHttp } from 'src/app/models/http-models/product-http.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -73,13 +75,14 @@ export class UserService {
      let url = URL_SERVICIOS + 'api/Persons';
 
    return this.http.post( url, user )
-                .map( (resp: any[]) => {
+                .map( (resp: User) => {
 
                   if(resp!==null){
                     const myId = uuid.v4();
-                    user['remember_toke'] = myId;
-                    let id = user['id'];
-                    this.saveStorage(id, myId, user );
+                    resp['remember_toke'] = myId;
+                    let id = resp['id'];
+
+                    this.saveStorage(id, myId, resp );
                     console.log(resp);
                   }
                   return resp;
@@ -134,6 +137,36 @@ export class UserService {
               });
   }
 
+  createProduct( product: Product ) {
+      let url = URL_SERVICIOS + 'api/Product';
+      return this.http.post( url, product )
+                .map( (resp: any) => {
+                  return resp;
+                },(error)=> {
+                  console.log(error)
+                });
+  }
+
+  actualizarProduct( produc: Product ) {
+    let url = URL_SERVICIOS + 'api/Products';
+    return this.http.post( url, produc )
+              .map( (resp: any) => {
+                return resp;
+              },(error)=> {
+                console.log(error)
+              });
+  }
+
+  deleteProduct( produ: Product ) {
+    let url = URL_SERVICIOS + 'api/Produc';
+    return this.http.post( url, produ )
+              .map( (resp: any) => {
+                return resp;
+              },(error)=> {
+                console.log(error)
+              });
+  }
+
 
   getUsers(): Observable<IUserHttp> {
     let url = URL_SERVICIOS + '/users';
@@ -143,5 +176,8 @@ export class UserService {
     let url = URL_SERVICIOS + 'api/Categorys';
     return this.http.get<ICategoryHttp>(url);
   }
-
+  getProduct(): Observable<IProductHttp> {
+    let url = URL_SERVICIOS + 'api/Products';
+    return this.http.get<IProductHttp>(url);
+  }
 }

@@ -107,7 +107,8 @@ class CategoryController extends Controller
         $catego->id = $request->input('id');
         $catego->nombre = $nombre;
         $catego->save();
-        echo json_encode($catego);
+        $select = DB::select( "select * from categories");
+        echo json_encode( $select);
     }
     public function eliminar(Request $request) {
         $id = $request->input('id');

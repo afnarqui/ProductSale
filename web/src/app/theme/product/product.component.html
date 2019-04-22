@@ -6,7 +6,33 @@
 
                 <div class="contenedor">
                     <div class="contenedor_formulario">
-                        <form [formGroup]="archivoForm" (ngSubmit)="subirArchivo()">
+                        <div *ngIf="inputGroupSelect===undefined" #alert class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong>required</strong> You should validate Category.
+                        </div>
+
+                        <form [formGroup]="archivoForms">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" [(ngModel)]="name" class="form-control" formControlName="archivos" id="name" aria-describedby="name" placeholder="Enter name">
+
+                                <label for="price">Price</label>
+                                <input type="number" [(ngModel)]="price" class="form-control" formControlName="archivos" id="price" aria-describedby="price" placeholder="Enter price">
+
+                                <label for="description">Descripción</label>
+                                <input type="text" [(ngModel)]="description" class="form-control" formControlName="archivos" id="description" aria-describedby="description" placeholder="Enter description">
+
+                            </div>
+                            <div class="form-group">
+                                <label>Choose...</label>
+                                <select class="custom-select" (change)="valoresSelect($event)" id="inputGroupSelect">
+                                      <option *ngFor="let item of dataselect" [value]="item">{{ item.nombre }} / {{ item.id}}</option>
+                                  </select>
+                            </div>
+                        </form>
+                        <form [formGroup]="archivoForm" (ngSubmit)="subirArchivos()">
                             <div class="file has-name is-boxed">
                                 <label class="file-label">
                                  <input class="file-input" type="file" formControlName="archivo" (change)="cambioArchivo($event)">
@@ -18,24 +44,27 @@
                             <img width="80" height="80" src="{{URLPublica}}" #imagenProducto/>
 
                         </form>
-                        <form [formGroup]="archivoForms">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" [(ngModel)]="name" class="form-control" formControlName="archivos" id="name" aria-describedby="name" placeholder="Enter name">
-
-                                <label for="name">Price</label>
-                                <input type="number" [(ngModel)]="price" class="form-control" formControlName="archivos" id="price" aria-describedby="price" placeholder="Enter price">
-
-                                <label for="description">Descripción</label>
-                                <input type="text" [(ngModel)]="description" class="form-control" formControlName="archivos" id="description" aria-describedby="description" placeholder="Enter description">
-
-                            </div>
-                            <div class="form-group">
-                                <button type="button" (click)="subirArchivoss()" class="btn btn-primary">Submit</button>
-                            </div>
-
-                        </form>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <div class="form-group">
+                            <button type="button" (click)="save()" class="btn btn-primary">Submit</button>
+                        </div>
                     </div>
+                </div>
+
+                <div class="form-group">
+                    <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let item of arrayProduct">
+
+                            <div>
+                                <img class="img-rounded imgm" src="{{item.photo}}"></div>
+                            <strong class="strongp">{{ item.name }}</strong>
+                            <button type="button" (click)="actualizar(item)" class="btn btn-default right cursor">Update</button>
+                            <button type="button" (click)="delete(item)" class="btn btn-danger right cursor">Delete</button>
+                        </li>
+
+                    </ul>
                 </div>
 
 

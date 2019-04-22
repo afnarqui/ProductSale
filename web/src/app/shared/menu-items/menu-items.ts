@@ -37,7 +37,7 @@ const MENUITEMS = [
       {
         state: 'home',
         short_label: 'N',
-        name: 'Home',
+        name: 'shoppingCar',
         type: 'link',
         icon: 'feather icon-menu',
         nombrehome: 'home'

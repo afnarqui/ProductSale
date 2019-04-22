@@ -4,6 +4,7 @@ import { LANGUAGE } from '../../config/setings';
 import { UserService } from '../../services/user/user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FirebaseStorageService } from '../../services/firebase/firebase-storage.service';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-product',
@@ -11,7 +12,7 @@ import { FirebaseStorageService } from '../../services/firebase/firebase-storage
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-
+  @ViewChild('alert') alert: ElementRef;
   public activeLang = LANGUAGE;
   @ViewChild('imagenProducto') imagenProducto: ElementRef;
   public archivoForm = new FormGroup({
@@ -32,13 +33,42 @@ export class ProductComponent implements OnInit {
   description
   name
   price
-
+  dataselect: datosSelect[] = []
+  inputGroupSelect
+  id
+  arrayCategory = []
+  product: Product = {
+    name: null,
+    price: null,
+    description: null,
+    photo: '',
+    idCategory: null,
+    idUser: null,
+    id: null
+  };
+  arrayProduct =  []
   constructor(private translate: TranslateService, private service: UserService,
               private firebaseStorage: FirebaseStorageService) {
     this.translate.setDefaultLang(this.activeLang);
+
    }
 
   ngOnInit() {
+    this.service.getCategory()
+    .subscribe((data:any)=> {
+      debugger
+      this.dataselect = data
+    },(error)=>{
+      console.log(error)
+    })
+    this.service.getProduct()
+      .subscribe((data:any)=> {
+        debugger
+        this.arrayProduct = data
+      },(error)=>{
+        console.log(error)
+      })
+
   }
 
   public cambiarLenguaje(lang) {
@@ -77,10 +107,116 @@ export class ProductComponent implements OnInit {
       this.imagenProducto['src'] = URL;
     });
   }
-  public subirArchivoss() {
-    let description = this.description
+  public save() {
     let name = this.name
     let price = this.price
+    let description = this.description
+    let url = this.URLPublica
+    let idcategory = this.inputGroupSelect
+    let idnuevo = this.id
+    if(idcategory === undefined){
+      this.closeAlert();
+      return;
+    }
+    debugger
+    if ( localStorage.getItem('id')) {
+      const id = localStorage.getItem('id');
+      const product = {
+        name: name,
+        price: price,
+        description: description,
+        photo: url,
+        idCategory: idcategory,
+        idUser: id,
+        id: idnuevo
+      };
+      console.log(product);
+      if(idnuevo!==undefined){
+        this.service.actualizarProduct(product)
+        .subscribe((response) => {
+
+          if (response !== null) {
+            this.arrayProduct = response;
+            this.clear()
+          }
+          console.log(response);
+        },(error)=>{
+          this.clear()
+          console.log(error)
+        })
+      }else {
+        this.service.createProduct(product)
+        .subscribe((response) => {
+
+          if (response !== null) {
+            this.arrayProduct = response;
+            this.clear()
+          }
+          console.log(response);
+        },(error)=>{
+          this.clear()
+          console.log(error)
+        })
+      }
+
+    } else {
+      debugger
+      return;
+    }
+
+  }
+  valoresSelect(data:string){
+    let index = data['currentTarget']['selectedIndex']
+    let valor = data['target'][index]['innerText']
+    let nuevoValor = valor.split('/');
+    this.inputGroupSelect = nuevoValor[1]
+    this.inputGroupSelect = this.inputGroupSelect.replace(/ /g, '');
+  }
+  closeAlert() {
+    this.alert.nativeElement.classList.remove('show');
+  }
+  clear() {
+    this.price = 0;
+    this.name = '';
+    this.description = '';
+    this.URLPublica = '';
+    this.inputGroupSelect = undefined;
+    this.id = undefined
+  }
+  actualizar(item){
+    console.log(item)
+    this.price = Number(item['price']);
+    this.name = item['name'];
+    this.description = item['description'];
+    this.URLPublica = item['photo'];
+    this.inputGroupSelect = item['idCategory'];
+    this.id = item['id']
     debugger
   }
+  delete(item) {
+    debugger
+    let produc: Product = new Product(
+      item['name'], item['price'], item['description'],item['photo'], item['idCategory'], item['idUser'], item['id']);
+
+    if(produc['id'] !== null){
+      this.service.deleteProduct(produc)
+      .subscribe((response)=>{
+        debugger
+        this.clear()
+        if(response!==null){
+          this.arrayProduct = response
+          this.clear()
+          debugger
+        }
+        console.log(response);
+      },(error)=>{
+        this.clear()
+        console.log(error);
+      });
+    }
+  }
+}
+class datosSelect {
+  public nombre:string;
+  public id:string;
 }

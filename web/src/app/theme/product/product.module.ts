@@ -14,7 +14,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../../../environments/environment';
 
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
@@ -32,7 +32,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   declarations: [ProductComponent]
 })
