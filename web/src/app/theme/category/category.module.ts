@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductComponent } from './product.component';
-import {ProductRoutingModule} from './product-routing.module';
+import { CategoryComponent } from './category.component';
+import {CategoryRoutingModule} from './category-routing.module';
 import {SharedModule} from '../../shared/shared.module';
 
 //Translation
@@ -18,7 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
-    ProductRoutingModule,
+    CategoryRoutingModule,
     SharedModule ,
     HttpClientModule,
     TranslateModule.forRoot({
@@ -34,6 +34,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     AngularFireStorageModule,
     ReactiveFormsModule
   ],
-  declarations: [ProductComponent]
+  declarations: [CategoryComponent]
 })
-export class ProductModule { }
+export class CategoryModule { }

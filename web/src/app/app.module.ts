@@ -26,6 +26,11 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 import { UserEffects } from './store/effects/user.effects';
 import { SuppliersComponent } from './layout/pages/suppliers/suppliers.component';
+import { UploadImageComponent } from './theme/upload-image/upload-image.component';
+import { GalleryComponent } from './theme/gallery/gallery.component';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -33,7 +38,9 @@ import { SuppliersComponent } from './layout/pages/suppliers/suppliers.component
     AdminComponent,
     AuthComponent,
     BreadcrumbsComponent,
-    SuppliersComponent
+    SuppliersComponent,
+    UploadImageComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +61,8 @@ import { SuppliersComponent } from './layout/pages/suppliers/suppliers.component
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([UserEffects]),
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule
   ],
   schemas: [],
   providers: [MenuItems],

@@ -2,12 +2,45 @@
     <div class="row">
         <div class="col-xl-12 col-sm-12">
             <router-outlet></router-outlet>
-            <app-card [title]="'Suppliers'" [classHeader]="'true'" [headerClass]="'borderless'">
-                <span class="code-header">
-          <span class="text-muted">Page for save productss
-          </span>
-                </span>
+            <app-card [title]="'Product'" [classHeader]="'true'" [headerClass]="'borderless'">
+
+                <div class="contenedor">
+                    <div class="contenedor_formulario">
+                        <form [formGroup]="archivoForm" (ngSubmit)="subirArchivo()">
+                            <div class="file has-name is-boxed">
+                                <label class="file-label">
+                                 <input class="file-input" type="file" formControlName="archivo" (change)="cambioArchivo($event)">
+                                </label>
+                            </div>
+                            <hr>
+                            <progress *ngIf="porcentaje > 0 && porcentaje < 100" class="progress is-large is-success" value="{{porcentaje}}" max="100">{{porcentaje}}%</progress>
+                            <button [ngClass]="{'button': true, 'is-success': true, 'is-large': true, 'is-loading': porcentaje > 0 && porcentaje < 100}" [disabled]="!archivoForm.valid && (porcentaje > 0 && porcentaje < 100)">Subir archivo</button>
+                            <img width="80" height="80" src="{{URLPublica}}" #imagenProducto/>
+
+                        </form>
+                        <form [formGroup]="archivoForms">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" [(ngModel)]="name" class="form-control" formControlName="archivos" id="name" aria-describedby="name" placeholder="Enter name">
+
+                                <label for="name">Price</label>
+                                <input type="number" [(ngModel)]="price" class="form-control" formControlName="archivos" id="price" aria-describedby="price" placeholder="Enter price">
+
+                                <label for="description">Descripción</label>
+                                <input type="text" [(ngModel)]="description" class="form-control" formControlName="archivos" id="description" aria-describedby="description" placeholder="Enter description">
+
+                            </div>
+                            <div class="form-group">
+                                <button type="button" (click)="subirArchivoss()" class="btn btn-primary">Submit</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+
             </app-card>
         </div>
+
     </div>
 </div>
