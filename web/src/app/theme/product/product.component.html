@@ -9,20 +9,13 @@
                         <form [formGroup]="archivoForm" (ngSubmit)="subirArchivo()">
                             <div class="file has-name is-boxed">
                                 <label class="file-label">
-<<<<<<< HEAD
-                            <input class="file-input" type="file" formControlName="archivo" (change)="cambioArchivo($event)">
-                          </label>
-=======
                                  <input class="file-input" type="file" formControlName="archivo" (change)="cambioArchivo($event)">
                                 </label>
->>>>>>> feature
                             </div>
                             <hr>
                             <progress *ngIf="porcentaje > 0 && porcentaje < 100" class="progress is-large is-success" value="{{porcentaje}}" max="100">{{porcentaje}}%</progress>
                             <button [ngClass]="{'button': true, 'is-success': true, 'is-large': true, 'is-loading': porcentaje > 0 && porcentaje < 100}" [disabled]="!archivoForm.valid && (porcentaje > 0 && porcentaje < 100)">Subir archivo</button>
                             <img width="80" height="80" src="{{URLPublica}}" #imagenProducto/>
-<<<<<<< HEAD
-=======
 
                         </form>
                         <form [formGroup]="archivoForms">
@@ -41,7 +34,6 @@
                                 <button type="button" (click)="subirArchivoss()" class="btn btn-primary">Submit</button>
                             </div>
 
->>>>>>> feature
                         </form>
                     </div>
                 </div>

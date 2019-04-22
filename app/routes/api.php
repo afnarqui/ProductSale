@@ -16,15 +16,12 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-Route::resource('Category','CategoryController');
+// Route::resource('Category','CategoryController');
 Route::resource('Person','PersonController');
 Route::resource('Product','ProductController');
 Route::resource('Persons','PersonsController');
-<<<<<<< HEAD
-=======
 Route::post('Category', 'CategoryController@creat');
 Route::get('Categorys', 'CategoryController@search');
 Route::post('Categorys', 'CategoryController@actualizar');
 Route::post('Categor', 'CategoryController@eliminar');
->>>>>>> feature
 

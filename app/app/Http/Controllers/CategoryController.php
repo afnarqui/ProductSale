@@ -24,8 +24,6 @@ class CategoryController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
-=======
 
     }
     public function creat(Request $request)
@@ -43,7 +41,6 @@ class CategoryController extends Controller
         $select = DB::select( "select * from categories");
         echo json_encode( $select);
 
->>>>>>> feature
     }
 
 
@@ -55,10 +52,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
-=======
 
->>>>>>> feature
     }
 
     /**
@@ -69,10 +63,7 @@ class CategoryController extends Controller
      */
     public function show(category $category)
     {
-<<<<<<< HEAD
-=======
 
->>>>>>> feature
     }
 
     /**

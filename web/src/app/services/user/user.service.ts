@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../models/user.model';
-<<<<<<< HEAD
-=======
 import { Category } from '../../models/category.model';
->>>>>>> feature
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../config/setings';
 import { Observable } from 'rxjs';
@@ -104,8 +101,6 @@ export class UserService {
               .map( (resp: any) => {
                 return resp;
               },(error)=> {
-<<<<<<< HEAD
-=======
                 console.log(error)
               });
   }
@@ -115,7 +110,6 @@ export class UserService {
               .map( (resp: any) => {
                 return resp;
               },(error)=> {
->>>>>>> feature
                 console.log(error)
               });
   }

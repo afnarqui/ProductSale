@@ -39,9 +39,6 @@ class PersonsController extends Controller
         $query->save();
         echo json_encode($query);
     }
-<<<<<<< HEAD
-=======
 
 
->>>>>>> feature
    }
