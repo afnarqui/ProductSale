@@ -24,6 +24,7 @@ class PersonsController extends Controller
         $query = DB::table('users')->where('email', $request->input('email'))->where('password',$request->input('password'))->first();
         echo json_encode( $query);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -38,4 +39,9 @@ class PersonsController extends Controller
         $query->save();
         echo json_encode($query);
     }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> feature
    }

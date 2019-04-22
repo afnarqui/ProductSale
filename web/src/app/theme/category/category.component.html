@@ -1,0 +1,27 @@
+<div class="page-body">
+    <div class="row">
+        <div class="col-xl-12 col-sm-12">
+            <router-outlet></router-outlet>
+            <app-card [title]="'Category'" [classHeader]="'true'" [headerClass]="'borderless'">
+                <form [formGroup]="archivoForms">
+                    <div class="form-group">
+                        <label for="name">Category</label>
+                        <input type="text" [(ngModel)]="category.nombre" class="form-control" formControlName="archivos" id="category" aria-describedby="category" placeholder="Enter category">
+                    </div>
+                    <div class="form-group">
+                        <button type="button" (click)="saveFile()" class="btn btn-primary">Save File</button>
+                    </div>
+
+                </form>
+
+                <ul class="list-group">
+                    <li class="list-group-item cursor" *ngFor="let item of arrayCategory">
+                        <div (click)="actualizar(item)">{{ item.nombre }}</div>
+                        <button type="button" (click)="delete(item)" class="btn btn-danger right">Delete</button>
+                    </li>
+
+                </ul>
+            </app-card>
+        </div>
+    </div>
+</div>

@@ -17,13 +17,30 @@ export class ProductComponent implements OnInit {
   public archivoForm = new FormGroup({
     archivo: new FormControl(null, Validators.required),
   });
+<<<<<<< HEAD
 
   public mensajeArchivo = 'No hay un archivo seleccionado';
   public datosFormulario = new FormData();
+=======
+  public archivoForms = new FormGroup({
+    archivos: new FormControl(null, Validators.required),
+  });
+
+
+  public mensajeArchivo = 'No hay un archivo seleccionado';
+  public datosFormulario = new FormData();
+  public datosFormularios = new FormData();
+>>>>>>> feature
   public nombreArchivo = '';
   public URLPublica = '';
   public porcentaje = 0;
   public finalizado = false;
+<<<<<<< HEAD
+=======
+  description
+  name
+  price
+>>>>>>> feature
 
   constructor(private translate: TranslateService, private service: UserService,
               private firebaseStorage: FirebaseStorageService) {
@@ -46,13 +63,21 @@ export class ProductComponent implements OnInit {
         this.datosFormulario.delete('archivo');
         this.datosFormulario.append('archivo', event.target.files[i], event.target.files[i].name)
       }
+<<<<<<< HEAD
       this.subirArchivo();
+=======
+      this.subirArchivos();
+>>>>>>> feature
     } else {
       this.mensajeArchivo = 'No hay un archivo seleccionado';
     }
   }
 
+<<<<<<< HEAD
   public subirArchivo() {
+=======
+  public subirArchivos() {
+>>>>>>> feature
     let archivo = this.datosFormulario.get('archivo');
     let referencia = this.firebaseStorage.referenciaCloudStorage(this.nombreArchivo);
     let tarea = this.firebaseStorage.tareaCloudStorage(this.nombreArchivo, archivo);
@@ -69,4 +94,13 @@ export class ProductComponent implements OnInit {
       this.imagenProducto['src'] = URL;
     });
   }
+<<<<<<< HEAD
+=======
+  public subirArchivoss() {
+    let description = this.description
+    let name = this.name
+    let price = this.price
+    debugger
+  }
+>>>>>>> feature
 }

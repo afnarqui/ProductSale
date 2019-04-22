@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../models/user.model';
+<<<<<<< HEAD
+=======
+import { Category } from '../../models/category.model';
+>>>>>>> feature
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../config/setings';
 import { Observable } from 'rxjs';
@@ -8,6 +12,7 @@ import { IUserHttp } from '../../models/http-models/user-http.interface';
 import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
 import * as uuid from 'uuid';
+import { ICategoryHttp } from 'src/app/models/http-models/category-http.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +21,7 @@ export class UserService {
 
   user: User;
   token: string;
+  category: Category;
 
   constructor(
     public http: HttpClient,
@@ -98,12 +104,50 @@ export class UserService {
               .map( (resp: any) => {
                 return resp;
               },(error)=> {
+<<<<<<< HEAD
+=======
                 console.log(error)
               });
   }
+  actualizarCategory( category: Category ) {
+    let url = URL_SERVICIOS + 'api/Categorys';
+    return this.http.post( url, category )
+              .map( (resp: any) => {
+                return resp;
+              },(error)=> {
+>>>>>>> feature
+                console.log(error)
+              });
+  }
+
+  deleteCategory( category: Category ) {
+    let url = URL_SERVICIOS + 'api/Categor';
+    return this.http.post( url, category )
+              .map( (resp: any) => {
+                return resp;
+              },(error)=> {
+                console.log(error)
+              });
+  }
+
+  createCategory( category: Category ) {
+    let url = URL_SERVICIOS + 'api/Category';
+    return this.http.post( url, category )
+              .map( (resp: any) => {
+                return resp;
+              },(error)=> {
+                console.log(error)
+              });
+  }
+
 
   getUsers(): Observable<IUserHttp> {
     let url = URL_SERVICIOS + '/users';
     return this.http.get<IUserHttp>(url);
   }
+  getCategory(): Observable<ICategoryHttp> {
+    let url = URL_SERVICIOS + 'api/Categorys';
+    return this.http.get<ICategoryHttp>(url);
+  }
+
 }

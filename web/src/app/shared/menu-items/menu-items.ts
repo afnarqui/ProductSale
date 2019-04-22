@@ -43,6 +43,14 @@ const MENUITEMS = [
         nombrehome: 'home'
       },
       {
+        state: 'category',
+        short_label: 'N',
+        name: 'Category',
+        type: 'link',
+        icon: 'feather icon-plus',
+        nombreproduct: 'category'
+      },
+      {
         state: 'product',
         short_label: 'N',
         name: 'Product',

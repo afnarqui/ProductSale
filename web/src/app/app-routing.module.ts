@@ -37,6 +37,10 @@ const routes: Routes = [
         loadChildren: './theme/product/product.module#ProductModule',
       },
       {
+        path: 'category',
+        loadChildren: './theme/category/category.module#CategoryModule',
+      },
+      {
         path: 'widget',
         loadChildren: './theme/widget/widget.module#WidgetModule'
       },

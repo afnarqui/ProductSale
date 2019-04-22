@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\category;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class CategoryController extends Controller
 {
     /**
@@ -24,7 +24,28 @@ class CategoryController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
+=======
+
     }
+    public function creat(Request $request)
+    {
+        $query = new category;
+        $query->nombre = $request->input('nombre');
+        $query->save();
+        $select = DB::select( "select * from categories");
+        echo json_encode( $select);
+
+    }
+
+    public function search(Request $request)
+    {
+        $select = DB::select( "select * from categories");
+        echo json_encode( $select);
+
+>>>>>>> feature
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -34,6 +55,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> feature
     }
 
     /**
@@ -44,6 +69,10 @@ class CategoryController extends Controller
      */
     public function show(category $category)
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> feature
     }
 
     /**
@@ -79,4 +108,22 @@ class CategoryController extends Controller
     {
         //
     }
+    public function actualizar(Request $request)
+    {
+        $id = $request->input('id');
+        $nombre = $request->input('nombre');
+        $catego = category::find($id);
+        $catego->id = $request->input('id');
+        $catego->nombre = $nombre;
+        $catego->save();
+        echo json_encode($catego);
+    }
+    public function eliminar(Request $request) {
+        $id = $request->input('id');
+        $catego = category::find($id);
+        $catego->delete();
+        $select = DB::select( "select * from categories");
+        echo json_encode( $select);
+    }
+
 }
