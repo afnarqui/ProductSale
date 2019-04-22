@@ -6,10 +6,63 @@
 
 
 
+                <div *ngIf="arrayProductSeleccion.length>0">
+                    <ul class="list-group" *ngFor="let item of arrayProductSeleccion">
+                        <li class="list-group-item" *ngFor="let item of arrayProductSeleccion; let i = index">
+
+                            <div>
+                                <img class="img-rounded imgm" src="{{item.photo}}">
+                            </div>
+                            <button type="button" class="btn btn-secondary">
+                                    <span class="badge badge-light"> {{ item.name }} </span>
+                                 </button>
+
+                            <button type="button" class="btn btn-primary">
+                                    <span class="badge badge-light"> {{ item.price | number }} </span>
+                                 </button>
+
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 cursor" *ngFor="let item of arrayCategory">
+                        <div class="thumbnail">
+
+                            <img class="imgm" src="https://firebasestorage.googleapis.com/v0/b/afn-pwa.appspot.com/o/sinimagen.jpg?alt=media&token=e90eeadc-cc1e-4c70-a131-e625c54034b0" alt="Lights" style="width:100%">
+                            <div class="caption">
+                                <p>{{ item.nombre }}</p>
+                            </div>
+
+                        </div>
+                    </div>
 
 
-
+                </div>
             </app-card>
+            <ul class="list-group">
+                <li class="list-group-item cursor" *ngFor="let item of arrayProduct; let i = index">
+
+                    <div>
+                        <img class="img-rounded imgm" src="{{item.photo}}"></div>
+                    <button type="button" class="btn btn-secondary">
+                        <span class="badge badge-light"> {{ item.name }} </span>
+                       </button>
+
+                    <button type="button" class="btn btn-primary right">
+                       <span class="badge badge-light">  {{ item.price | number }}</span>
+                      </button>
+                    <button type="button" (click)="aumentarUnProducto(item,i)" class="btn btn-primary">
+                          <span class="badge badge-info">+</span>
+                       </button>
+                </li>
+
+            </ul>
         </div>
+
+
+
+
+
     </div>
 </div>

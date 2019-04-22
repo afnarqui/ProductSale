@@ -1,3 +1,62 @@
 input {
     display: none;
 }
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    .contenedor-formulario {
+        width: 400px;
+    }
+    .download {
+        background: #14064e;
+        color: #FFFFFF;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        a {
+            text-decoration: underline;
+            color: #FFFFFF;
+        }
+    }
+}
+
+img {
+    max-height: 40px;
+    float: left!important;
+}
+
+.imgm {
+    display: block;
+    float: left !important;
+    margin: auto;
+    width: 10%;
+    height: 40px;
+    border: 1px solid #9c9c9c;
+    border-radius: 25px;
+    margin-right: 40px;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.right {
+    text-align: right;
+    float: right;
+}
+
+.strongp {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.count {
+    background-color: rgb(27, 5, 61);
+    padding-top: 6px;
+    padding-bottom: 6px;
+    top: 4px;
+    position: relative;
+}
