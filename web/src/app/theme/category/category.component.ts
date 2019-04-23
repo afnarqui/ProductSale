@@ -23,7 +23,7 @@ export class CategoryComponent implements OnInit {
   ngOnInit() {
     this.userService.getCategory()
       .subscribe((data:any)=> {
-        debugger
+
         this.arrayCategory = data
       },(error)=>{
         console.log(error)
@@ -36,11 +36,11 @@ export class CategoryComponent implements OnInit {
     if(categorys['id'] !== null){
       this.userService.actualizarCategory(categorys)
       .subscribe((response)=>{
-        debugger
+
         if(response!==null){
           this.arrayCategory = response
           this.clear()
-          debugger
+
         }
         console.log(response);
       },(error)=>{
@@ -68,7 +68,7 @@ export class CategoryComponent implements OnInit {
     console.log(item)
     this.category.id = item['id'];
     this.category.nombre = item['nombre'];
-    debugger
+
 
   }
   clear() {
@@ -81,11 +81,11 @@ export class CategoryComponent implements OnInit {
     if(categorys['id'] !== null){
       this.userService.deleteCategory(categorys)
       .subscribe((response)=>{
-        debugger
+
         if(response!==null){
           this.arrayCategory = response
           this.clear()
-          debugger
+
         }
         console.log(response);
       },(error)=>{

@@ -12,6 +12,7 @@ import * as uuid from 'uuid';
 import { ICategoryHttp } from 'src/app/models/http-models/category-http.interface';
 import { Product } from 'src/app/models/product.model';
 import { IProductHttp } from 'src/app/models/http-models/product-http.interface';
+import { Shopping } from 'src/app/models/shopping.model';
 
 @Injectable({
   providedIn: 'root'
@@ -166,6 +167,44 @@ export class UserService {
                 console.log(error)
               });
   }
+  Updated( shopping: Shopping ) {
+    let url = URL_SERVICIOS + 'api/Shopping';
+    debugger
+    return this.http.post( url, shopping )
+              .map( (resp: any) => {
+                debugger
+                return resp;
+              },(error)=> {
+                debugger
+                console.log(error)
+              });
+  }
+  creatShopping( shopping: Shopping ) {
+    let url = URL_SERVICIOS + 'api/Shoppin';
+    debugger
+    return this.http.post( url, shopping )
+              .map( (resp: any) => {
+                debugger
+                return resp;
+              },(error)=> {
+                debugger
+                console.log(error)
+              });
+  }
+
+  searchShopping( shopping: Shopping ) {
+    let url = URL_SERVICIOS + 'api/Shoppings';
+    debugger
+    return this.http.post( url, shopping )
+              .map( (resp: any) => {
+                debugger
+                return resp;
+              },(error)=> {
+                debugger
+                console.log(error)
+              });
+  }
+
 
 
   getUsers(): Observable<IUserHttp> {

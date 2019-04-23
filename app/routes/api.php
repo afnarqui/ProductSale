@@ -28,5 +28,6 @@ Route::post('Product', 'ProductController@creat');
 Route::get('Products', 'ProductController@search');
 Route::post('Products', 'ProductController@actualizar');
 Route::post('Produc', 'ProductController@eliminar');
-
-
+Route::post('Shopping','ShoppingCarController@Updated');
+Route::post('Shoppings','ShoppingCarController@search');
+Route::post('Shoppin','ShoppingCarController@creat');

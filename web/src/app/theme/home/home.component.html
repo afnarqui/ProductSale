@@ -3,11 +3,14 @@
         <div class="col-xl-12 col-sm-12">
             <router-outlet></router-outlet>
             <app-card [title]="'shoppingCar '" [classHeader]="'true'" [headerClass]="'borderless'">
+                <img (click)="creatShopping()" class="imgshop" src="../../../assets//icon/shopping.svg">
+                <div>
+                    <span class="badge badge-light">Valor Total: <h1>{{ totalPrice }}</h1> </span>
 
-
-
+                </div>
+                <br>
                 <div *ngIf="arrayProductSeleccion.length>0">
-                    <ul class="list-group" *ngFor="let item of arrayProductSeleccion">
+                    <ul>
                         <li class="list-group-item" *ngFor="let item of arrayProductSeleccion; let i = index">
 
                             <div>

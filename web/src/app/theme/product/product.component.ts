@@ -56,14 +56,14 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     this.service.getCategory()
     .subscribe((data:any)=> {
-      debugger
+
       this.dataselect = data
     },(error)=>{
       console.log(error)
     })
     this.service.getProduct()
       .subscribe((data:any)=> {
-        debugger
+
         this.arrayProduct = data
       },(error)=>{
         console.log(error)
@@ -118,7 +118,7 @@ export class ProductComponent implements OnInit {
       this.closeAlert();
       return;
     }
-    debugger
+
     if ( localStorage.getItem('id')) {
       const id = localStorage.getItem('id');
       const product = {
@@ -160,7 +160,7 @@ export class ProductComponent implements OnInit {
       }
 
     } else {
-      debugger
+
       return;
     }
 
@@ -191,22 +191,22 @@ export class ProductComponent implements OnInit {
     this.URLPublica = item['photo'];
     this.inputGroupSelect = item['idCategory'];
     this.id = item['id']
-    debugger
+
   }
   delete(item) {
-    debugger
+
     let produc: Product = new Product(
       item['name'], item['price'], item['description'],item['photo'], item['idCategory'], item['idUser'], item['id']);
 
     if(produc['id'] !== null){
       this.service.deleteProduct(produc)
       .subscribe((response)=>{
-        debugger
+
         this.clear()
         if(response!==null){
           this.arrayProduct = response
           this.clear()
-          debugger
+
         }
         console.log(response);
       },(error)=>{
