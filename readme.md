@@ -1,3 +1,14 @@
+# ProductSale
+
+[![N|Solid](https://firebasestorage.googleapis.com/v0/b/afn-pwa.appspot.com/o/shopping.png?alt=media&token=7cba4da6-1bb1-49c3-8037-5dd94a452458)](https://nodesource.com/products/nsolid)
+
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+
+productSale is a aplication, for save products and saleing. developed in laravel, mysql, angular with docker
+
+And of course ProductSale itself is open source with a [public repository][afn]
+ on GitHub.
+ 
 ### Installation
 
 ProducSale requires 
