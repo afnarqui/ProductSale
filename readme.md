@@ -13,12 +13,19 @@ And of course ProductSale itself is open source with a [public repository][afn]
 
 ProducSale requires 
 [xammp](https://www.apachefriends.org/es/download_success.html)
+
 [Node.js](https://nodejs.org/) v10+
+
 [Laravel](https://laravel.com/docs/5.8/installation#installing-laravel)
+
 [Angular](https://angular.io/guide/quickstart) v7+
+
 [Mysql](https://www.mysql.com/downloads/)
+
 [Docker](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
+
 [Git](https://git-scm.com/downloads)
+
 to run.
 
 Install the dependencies and devDependencies previous
