@@ -44,4 +44,4 @@ npm install http-server
 http-server -p 8001
 ```
 
-   [afn]: <https://github.com/joemccann/dillinger>
+   [afn]: <https://github.com/afnarqui/ProductSale>
